@@ -12,9 +12,10 @@ pretrained = ["burn/network", "std", "dep:dirs"]
 
 [dependencies]
 # Note: default-features = false is needed to disable std
+burn-import = { git = "https://github.com/torsteingrindvik/burn", branch = "burn-no-leak", default-features = false, features = [
+    "pytorch",
+] }
 burn = { git = "https://github.com/torsteingrindvik/burn", branch = "burn-no-leak", default-features = false }
-burn-import = { git = "https://github.com/torsteingrindvik/burn", branch = "burn-no-leak" }
-
 itertools = { version = "0.12.1", default-features = false, features = [
     "use_alloc",
 ] }
