@@ -6,14 +6,15 @@ version = "0.1.0"
 edition = "2021"
 
 [features]
-default = []
+default = ["pretrained"]
 std = []
 pretrained = ["burn/network", "std", "dep:dirs"]
 
 [dependencies]
 # Note: default-features = false is needed to disable std
-burn = { version = "0.16.0", default-features = false }
-burn-import = { version = "0.16.0" }
+burn = { git = "https://github.com/torsteingrindvik/burn", branch = "burn-no-leak", default-features = false }
+burn-import = { git = "https://github.com/torsteingrindvik/burn", branch = "burn-no-leak" }
+
 itertools = { version = "0.12.1", default-features = false, features = [
     "use_alloc",
 ] }
@@ -24,5 +25,7 @@ serde = { version = "1.0.192", default-features = false, features = [
 ] } # alloc is for no_std, derive is needed
 
 [dev-dependencies]
-burn = { version = "0.16.0", features = ["ndarray"] }
+burn = { git = "https://github.com/torsteingrindvik/burn", branch = "burn-no-leak", features = [
+    "ndarray",
+] }
 image = { version = "0.24.9", features = ["png", "jpeg"] }
