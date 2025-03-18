@@ -28,5 +28,7 @@ serde = { version = "1.0.192", default-features = false, features = [
 [dev-dependencies]
 burn = { git = "https://github.com/torsteingrindvik/burn", branch = "burn-no-leak", features = [
     "ndarray",
+    "cuda",
+    "wgpu",
 ] }
 image = { version = "0.24.9", features = ["png", "jpeg"] }

@@ -1,10 +1,12 @@
+#![recursion_limit = "2048"]
+
 use std::path::Path;
 
 use image::{DynamicImage, ImageBuffer};
 use yolox_burn::model::{boxes::nms, weights, yolox::Yolox, BoundingBox};
 
 use burn::{
-    backend::NdArray,
+    backend::Wgpu,
     tensor::{backend::Backend, Device, Element, Tensor, TensorData},
 };
 
@@ -99,7 +101,7 @@ pub fn main() {
 
     // Create YOLOX-Tiny
     let device = Default::default();
-    let model: Yolox<NdArray> = Yolox::yolox_tiny_pretrained(weights::YoloxTiny::Coco, &device)
+    let model: Yolox<Wgpu> = Yolox::yolox_tiny_pretrained(weights::YoloxTiny::Coco, &device)
         .map_err(|err| format!("Failed to load pre-trained weights.\nError: {err}"))
         .unwrap();
 
