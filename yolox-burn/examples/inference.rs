@@ -96,6 +96,8 @@ fn draw_boxes(
 }
 
 pub fn main() {
+    pretty_env_logger::init();
+
     // Parse arguments
     let img_path = std::env::args().nth(1).expect("No image path provided");
 

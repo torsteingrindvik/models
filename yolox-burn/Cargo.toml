@@ -32,3 +32,4 @@ burn = { git = "https://github.com/torsteingrindvik/burn", branch = "burn-no-lea
     "wgpu",
 ] }
 image = { version = "0.24.9", features = ["png", "jpeg"] }
+pretty_env_logger = "0.5.0"
